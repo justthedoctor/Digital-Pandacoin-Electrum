@@ -244,11 +244,11 @@ def get_headers_path(config):
 
 def user_dir():
     if "HOME" in os.environ:
-        return os.path.join(os.environ["HOME"], ".electrum")
+        return os.path.join(os.environ["HOME"], ".electrum-pnd")
     elif "APPDATA" in os.environ:
-        return os.path.join(os.environ["APPDATA"], "Electrum")
+        return os.path.join(os.environ["APPDATA"], "Electrum-pnd")
     elif "LOCALAPPDATA" in os.environ:
-        return os.path.join(os.environ["LOCALAPPDATA"], "Electrum")
+        return os.path.join(os.environ["LOCALAPPDATA"], "Electrum-pnd")
     elif 'ANDROID_DATA' in os.environ:
         return android_check_data_dir()
     else:
