@@ -108,8 +108,8 @@ class BitcoinAverage(ExchangeBase):
 class BitcoinVenezuela(ExchangeBase):
     def get_rates(self, ccy):
         json = self.get_json('api.bitcoinvenezuela.com', '/')
-        rates = [(r, json['BTC'][r]) for r in json['BTC']
-                 if json['BTC'][r] is not None]  # Giving NULL for LTC
+        rates = [(r, json['PND'][r]) for r in json['PND']
+                 if json['PND'][r] is not None]  # Giving NULL for LTC
         return dict(rates)
 
     def protocol(self):
@@ -120,7 +120,7 @@ class BitcoinVenezuela(ExchangeBase):
 
     def historical_rates(self, ccy):
         return self.get_json('api.bitcoinvenezuela.com',
-                             "/historical/index.php?coin=BTC")[ccy +'_BTC']
+                             "/historical/index.php?coin=PND")[ccy +'_PND']
 
 class BTCParalelo(ExchangeBase):
     def get_rates(self, ccy):
@@ -374,7 +374,7 @@ class FxPlugin(BasePlugin, ThreadJob):
     @hook
     def get_fiat_status_text(self, btc_balance):
         rate = self.exchange_rate()
-        return _("  (No FX rate available)") if rate is None else "1 BTC~%s %s" % (self.value_str(COIN, rate), self.ccy)
+        return _("  (No FX rate available)") if rate is None else "1 PND~%s %s" % (self.value_str(COIN, rate), self.ccy)
 
     def get_historical_rates(self):
         if self.show_history():

@@ -9,6 +9,7 @@ electrum.conf.sample
 electrum.desktop
 icons.qrc
 setup-release.py
+setup.cfg
 setup.py
 Electrum.egg-info/PKG-INFO
 Electrum.egg-info/SOURCES.txt

@@ -35,7 +35,7 @@ import urllib
 import threading
 from i18n import _
 
-base_units = {'BTC':8, 'mBTC':5, 'uBTC':2}
+base_units = {'PND':8, 'mPND':5, 'uPND':2}
 fee_levels = [_('Within 25 blocks'), _('Within 10 blocks'), _('Within 5 blocks'), _('Within 2 blocks'), _('In the next block')]
 
 def normalize_version(v):
@@ -398,12 +398,12 @@ def parse_URI(uri, on_pr=None):
 
     if ':' not in uri:
         if not bitcoin.is_address(uri):
-            raise BaseException("Not a bitcoin address")
+            raise BaseException("Not a pandacoin address")
         return {'address': uri}
 
     u = urlparse.urlparse(uri)
     if u.scheme != 'bitcoin':
-        raise BaseException("Not a bitcoin URI")
+        raise BaseException("Not a pandacoin URI")
     address = u.path
 
     # python for android fails to parse query
@@ -420,7 +420,7 @@ def parse_URI(uri, on_pr=None):
     out = {k: v[0] for k, v in pq.items()}
     if address:
         if not bitcoin.is_address(address):
-            raise BaseException("Invalid bitcoin address:" + address)
+            raise BaseException("Invalid pandacoin address:" + address)
         out['address'] = address
     if 'amount' in out:
         am = out['amount']

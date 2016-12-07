@@ -82,7 +82,7 @@ class ElectrumWindow(App):
         self.send_screen.set_URI(uri)
 
     def on_new_intent(self, intent):
-        if intent.getScheme() != 'bitcoin':
+        if intent.getScheme() != 'pandacoin':
             return
         uri = intent.getDataString()
         self.set_URI(uri)
@@ -101,7 +101,7 @@ class ElectrumWindow(App):
             Clock.schedule_once(lambda dt: self.history_screen.update())
 
     def _get_bu(self):
-        return self.electrum_config.get('base_unit', 'mBTC')
+        return self.electrum_config.get('base_unit', 'mPND')
 
     def _set_bu(self, value):
         assert value in base_units.keys()
@@ -239,7 +239,7 @@ class ElectrumWindow(App):
         if is_address(data):
             self.set_URI(data)
             return
-        if data.startswith('bitcoin:'):
+        if data.startswith('pandacoin:'):
             self.set_URI(data)
             return
         # try to decode transaction
