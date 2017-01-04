@@ -304,7 +304,7 @@ class Network(util.DaemonThread):
         self.queue_request('server.peers.subscribe', [])
         for i in FEE_TARGETS:
             self.queue_request('blockchain.estimatefee', [i])
-        self.queue_request('blockchain.relayfee', [])
+        # self.queue_request('blockchain.relayfee', [])
 
     def get_status_value(self, key):
         if key == 'status':
