@@ -35,7 +35,7 @@ import urllib
 import threading
 from i18n import _
 
-base_units = {'PND':8, 'mPND':5, 'uPND':2}
+base_units = {'PND':8, 'PND':8, 'PND':8}
 fee_levels = [_('Within 25 blocks'), _('Within 10 blocks'), _('Within 5 blocks'), _('Within 2 blocks'), _('In the next block')]
 
 def normalize_version(v):
@@ -355,7 +355,7 @@ block_explorer_info = {
 }
 
 def block_explorer(config):
-    return config.get('block_explorer', 'Blockchain.info')
+    return config.get('block_explorer', 'cryptoid Chainz')
 
 def block_explorer_tuple(config):
     return block_explorer_info.get(block_explorer(config))

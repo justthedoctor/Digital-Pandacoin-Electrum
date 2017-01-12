@@ -536,8 +536,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         assert self.decimal_point in [2, 5, 8]
         if self.decimal_point == 2:
             return 'bits'
-        if self.decimal_point == 5:
-            return 'mPND'
+        if self.decimal_point == 8:
+            return 'PND'
         if self.decimal_point == 8:
             return 'PND'
         raise Exception('Unknown base unit')
@@ -2346,9 +2346,9 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         SSL_id_e.setReadOnly(True)
         id_widgets.append((SSL_id_label, SSL_id_e))
 
-        units = ['PND', 'mPND', 'bits']
+        units = ['PND', 'PND', 'bits']
         msg = _('Base unit of your wallet.')\
-              + '\n1PND=1000mPND.\n' \
+              + '\n1PND=1PND.\n' \
               + _(' These settings affects the fields in the Send tab')+' '
         unit_label = HelpLabel(_('Base unit') + ':', msg)
         unit_combo = QComboBox()
@@ -2362,8 +2362,8 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
             amounts = [edit.get_amount() for edit in edits]
             if unit_result == 'PND':
                 self.decimal_point = 8
-            elif unit_result == 'mPND':
-                self.decimal_point = 5
+            elif unit_result == 'PND':
+                self.decimal_point = 8
             elif unit_result == 'bits':
                 self.decimal_point = 2
             else:
@@ -2383,7 +2383,7 @@ class ElectrumWindow(QMainWindow, MessageBoxMixin, PrintError):
         block_ex_label = HelpLabel(_('Online Block Explorer') + ':', msg)
         block_ex_combo = QComboBox()
         block_ex_combo.addItems(block_explorers)
-        block_ex_combo.setCurrentIndex(block_explorers.index(block_explorer(self.config)))
+        block_ex_combo.setCurrentIndex(block_ex_combo.findText(block_explorer(self.config)))
         def on_be(x):
             be_result = block_explorers[block_ex_combo.currentIndex()]
             self.config.set_key('block_explorer', be_result, True)

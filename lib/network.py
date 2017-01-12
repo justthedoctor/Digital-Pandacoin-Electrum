@@ -47,7 +47,8 @@ FEE_TARGETS = [25, 10, 5, 2]
 DEFAULT_PORTS = {'t':'50001', 's':'50002', 'h':'8081', 'g':'8082'}
 
 DEFAULT_SERVERS = {
-    'server1.cryptodepot.org':{'t':'50001', 's':'50002'},
+    'server1.cryptodepot.org':{'t':'50001', 's':'50001'},
+	'electrum-pnd.cryptodepot.org':{'t':'50001', 's':'50001'},
 }
 
 NODES_RETRY_INTERVAL = 60

@@ -79,8 +79,8 @@ class BTCAmountEdit(AmountEdit):
         assert p in [2, 5, 8]
         if p == 8:
             return 'PND'
-        if p == 5:
-            return 'mPND'
+        if p == 8:
+            return 'PND'
         if p == 2:
             return 'bits'
         raise Exception('Unknown base unit')
