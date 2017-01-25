@@ -350,6 +350,8 @@ def time_difference(distance_in_time, include_seconds):
 block_explorer_info = {
     'cryptoid Chainz': ('https://chainz.cryptoid.info/pnd/',
                         {'tx': 'tx.dws?', 'addr': 'address.dws?'}),
+    'bchain.info': ('https://bchain.info/PND/',
+                        {'tx': 'tx/', 'addr': 'addr/'}),
     'system default': ('https://chainz.cryptoid.info/pnd/',
                         {'tx': 'tx.dws?', 'addr': 'address.dws?'}),
 }
